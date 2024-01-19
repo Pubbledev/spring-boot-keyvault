@@ -1,0 +1,28 @@
+logging:
+  level:
+    org.springframework.boot.autoconfigure.logging: ERROR
+server:
+  error:
+    whitelabel:
+      enabled: false
+  forward-headers-strategy: NATIVE
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        secure: true
+        same-site: None
+  port: 443
+  tomcat:
+    redirect-context-root: false
+    use-relative-redirects: true
+    max-http-form-post-size: 10MB
+    remoteip:
+      protocol-header: X-Forwarded-Proto
+  ssl:
+    key-alias: my-certificate # Replace with your certificate
+    key-store-type: AzureKeyVault
+    trust-store-type: AzureKeyVault
+azure:
+  keyvault:
+    uri: https://your-keyvault.vault.azure.net/ # Replace with your Keyvault URI
